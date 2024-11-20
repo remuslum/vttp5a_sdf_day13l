@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -38,12 +38,15 @@ public class PersonRepo {
         }
     }
 
-    public boolean update(Person person){
-        List<Person> filteredPersons = persons.stream().filter(p -> p.getId().equals(person.getId())).collect(Collectors.toList());
+    public Person findById(String personId){
+        return persons.stream().filter(p -> p.getId().equals(personId)).findFirst().get();
+    }
 
-        if(!filteredPersons.isEmpty()){
-            persons.remove(filteredPersons.getFirst());
-            persons.add(person);
+    public boolean update(Person person){
+        Person filteredPersons = findById(person.getId());
+        if(filteredPersons != null){
+            delete(filteredPersons);
+            create(person);
             return true;
         }
         return false;

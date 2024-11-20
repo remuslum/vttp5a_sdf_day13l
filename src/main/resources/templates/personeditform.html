@@ -9,9 +9,12 @@
 <body>
     <div class="container">
         <h1>
-            Fill in your particulars
+            Edit your particulars
         </h1>
-        <form method="POST" th:action="@{/persons/create}" th:object="${person}">
+        <form method="POST" th:action="@{/persons/edit}" th:object="${person}">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="id" th:field="*{id}" name="id" hidden>
+            </div>
             <div class="mb-3">
                 <label for="firstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="firstName" th:field="*{firstName}" placeholder="First Name" name="firstName">

@@ -27,11 +27,16 @@
                     <td th:text="${person.salary}"></td>
                     <td th:text="${person.email}"></td>
                     <td th:text="${#dates.format(person.dob, 'yyyy-MM-dd')}"></td>
+                    <td>
+                        <a th:href="@{/persons/delete/{person-id}(person-id=${person.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/persons/edit/{person-id}(person-id=${person.id})}" class="btn btn-success">Edit</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
         <a class="btn btn-primary" th:href="@{/persons/create}">Create New Person</a>
     </div>
-    
 </body>
 </html>

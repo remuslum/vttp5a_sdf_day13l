@@ -10,13 +10,11 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 public class Person {
 
-    @NotNull(message = "id must be auto generated")
     private String id;
 
     @NotEmpty(message = "First name is mandatory")
@@ -35,12 +33,12 @@ public class Person {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-    @Past(message = "borth date must be a past date")
+    @Past(message = "birth date must be a past date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
     public Person(){
-        
+
     }
 
     public Person(String firstName, String lastName, int salary, String email, Date dob) {
@@ -98,6 +96,11 @@ public class Person {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    @Override
+    public String toString(){
+        return "firstName: " + firstName + ", lastName: " + lastName + ", Salary: " + salary + ", Email: " + email + ", Date of Birth: " + dob;
     }
     
 }

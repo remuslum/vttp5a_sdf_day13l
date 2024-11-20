@@ -29,4 +29,8 @@ public class PersonService {
     public boolean delete(Person person){
         return personRepo.delete(person);
     }
+
+    public Person findById(String personId){
+        return personRepo.findById(personId);
+    }
 }

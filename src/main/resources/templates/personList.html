@@ -41,6 +41,9 @@
             </tbody>
         </table>
         <a class="btn btn-primary" th:href="@{/persons/create}">Create New Person</a>
+        <form th:action="@{/persons/savelist}" method="get">
+            <button class="btn btn-secondary">Save</button>
+        </form>
     </div>
 </body>
 </html>

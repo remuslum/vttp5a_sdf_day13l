@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.vttp5a_day13l.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,12 @@ public class PersonController {
             return "personeditform";
         } 
         personService.update(person);
+        return "redirect:/persons";
+    }
+
+    @GetMapping("/savelist")
+    public String saveList() throws IOException{
+        boolean success = personService.saveFile();
         return "redirect:/persons";
     }
 }

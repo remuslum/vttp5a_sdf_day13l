@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.vttp5a_day13l.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -128,7 +129,9 @@ public class Person {
 
     @Override
     public String toString(){
-        return "firstName: " + firstName + ", lastName: " + lastName + ", Salary: " + salary + ", Email: " + email + ", Date of Birth: " + dob;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return "firstName: " + firstName + ", lastName: " + lastName + ", Salary: " + salary 
+        + ", Email: " + email + ", Date of Birth: " + formatter.format(dob) + ", Telephone: " + telephone + ", Postal Code: " + postalCode;
     }
     
 }

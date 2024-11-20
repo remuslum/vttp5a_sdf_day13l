@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.vttp5a_day13l.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,9 @@ public class PersonService {
 
     public Person findById(String personId){
         return personRepo.findById(personId);
+    }
+
+    public boolean saveFile() throws IOException{
+        return personRepo.saveFile();
     }
 }

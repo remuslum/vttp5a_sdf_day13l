@@ -37,7 +37,7 @@
             <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                <input type="text" class="form-control" id="dateOfBirth" th:field="*{dob}" placeholder="Date of Birth" name="dateOfBirth">
+                <input type="date" class="form-control" id="dateOfBirth" th:field="*{dob}" placeholder="Date of Birth" name="dateOfBirth">
             </div>
             <div class="text-danger" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></div>
             <div class="mb-3">

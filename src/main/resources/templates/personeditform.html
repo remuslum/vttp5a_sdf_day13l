@@ -40,6 +40,16 @@
                 <input type="text" class="form-control" id="dateOfBirth" th:field="*{dob}" placeholder="Date of Birth" name="dateOfBirth">
             </div>
             <div class="text-danger" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></div>
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Telephone</label>
+                <input type="text" class="form-control" id="telephone" th:field="*{telephone}" placeholder="Telephone" name="telephone">
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></div>
+            <div class="mb-3">
+                <label for="postalCode" class="form-label">Postal Code</label>
+                <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}" placeholder="Postal Code" name="postalCode">
+            </div>
+            <div class="text-danger" th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"></div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

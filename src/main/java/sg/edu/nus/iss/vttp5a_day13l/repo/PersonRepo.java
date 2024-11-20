@@ -18,7 +18,7 @@ public class PersonRepo {
         this.persons = new ArrayList<>();
         String birthDate = "1998-02-01";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        persons.add(new Person("Jack", "Daniel", 12000, "jackdaniel@gmail.com",formatter.parse(birthDate)));
+        persons.add(new Person("Jack", "Daniel", 12000, "jackdaniel@gmail.com",formatter.parse(birthDate), "96557822", 668557));
     }
 
     public List<Person> listAll(){

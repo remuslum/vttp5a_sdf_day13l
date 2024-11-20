@@ -5,12 +5,14 @@ import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Person {
@@ -37,17 +39,27 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
+    @Pattern(regexp = "(8|9)[0-9]{7}", message = "Phone number must start with 8 or 9 followed by 7 digits")
+    private String telephone;
+
+    @Min(value = 111111, message = "Postal Code is too small, must be greater than 111111")
+    @Max(value = 999999, message = "POstal code cannot exceed 999999")
+    @Digits(fraction = 0, integer = 6, message = "Postal code must be 6 digits")
+    private int postalCode;
+
     public Person(){
 
     }
 
-    public Person(String firstName, String lastName, int salary, String email, Date dob) {
+    public Person(String firstName, String lastName, int salary, String email, Date dob, String telephone, int postalCode) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
         this.email = email;
         this.dob = dob;
+        this.telephone = telephone;
+        this.postalCode = postalCode;
     }
 
     public String getId() {
@@ -96,6 +108,22 @@ public class Person {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 
     @Override

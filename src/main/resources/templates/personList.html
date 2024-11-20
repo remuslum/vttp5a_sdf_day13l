@@ -17,6 +17,8 @@
                     <th scope="col">Salary</th>
                     <th scope="col">Email</th>
                     <th scope="col">Date of Birth</th>
+                    <th scope="col">Telephone</th>
+                    <th scope="col">Postal Code</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +29,8 @@
                     <td th:text="${person.salary}"></td>
                     <td th:text="${person.email}"></td>
                     <td th:text="${#dates.format(person.dob, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${person.telephone}"></td>
+                    <td th:text="${person.postalCode}"></td>
                     <td>
                         <a th:href="@{/persons/delete/{person-id}(person-id=${person.id})}" class="btn btn-danger">Delete</a>
                     </td>

@@ -12,7 +12,7 @@ ARG APP_DIR=/app
 WORKDIR ${APP_DIR}
 
 # Install Maven
-RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
 # Copy the required files/directories into the image 
 COPY pom.xml .
@@ -24,9 +24,10 @@ COPY src src
 # Package the application using the RUN directive
 # This will download the dependencies defined in pom.xml
 # Compile and package to JAR
-RUN mvn package -Dmaven.test.skip=true
+RUN chmod a+x ./mvnw && ./mvnw package -Dmaven.test.skip=true
+# RUN mvn package -Dmaven.test.skip=true
 
-ENV SERVER_PORT=3000
+ENV SERVER_PORT=8888
 
 EXPOSE ${SERVER_PORT}
 

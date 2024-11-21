@@ -22,31 +22,31 @@ public class PersonRepo {
     private List<Person> persons;
 
     public PersonRepo() throws ParseException, IOException{
-        this.persons = readFile();
-        // String birthDate = "1998-02-01";
-        // SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        // persons.add(new Person("Jack", "Daniel", 12000, "jackdaniel@gmail.com",formatter.parse(birthDate), "96557822", 668557));
-    }
-
-    private List<Person> readFile() throws ParseException, IOException{
-        List<Person> listOfPerson = new ArrayList<>();
-        File fileToRead = new File("data/output.txt");
-        BufferedReader br = new BufferedReader(new FileReader(fileToRead));
-        String line = "";
+        this.persons = new ArrayList<>();
+        String birthDate = "1998-02-01";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        while((line = br.readLine()) != null){
-            String[] lineSplit = line.split(",");
-            Map<String, String> personMap = new HashMap<>();
-            for(String attribute:lineSplit){
-                String[] attributeSplit = attribute.split(":");
-                personMap.put(attributeSplit[0].trim(), attributeSplit[1].trim());
-            }
-            listOfPerson.add(new Person(personMap.get("firstName"), personMap.get("lastName"), Integer.parseInt(personMap.get("Salary")), personMap.get("Email"), formatter.parse(personMap.get("Date of Birth")), personMap.get("Telephone"), Integer.parseInt(personMap.get("Postal Code"))));
-        }
-        br.close();
-        return listOfPerson;
-
+        persons.add(new Person("Jack", "Daniel", 12000, "jackdaniel@gmail.com",formatter.parse(birthDate), "96557822", 668557));
     }
+
+    // private List<Person> readFile() throws ParseException, IOException{
+    //     List<Person> listOfPerson = new ArrayList<>();
+    //     File fileToRead = new File("data/output.txt");
+    //     BufferedReader br = new BufferedReader(new FileReader(fileToRead));
+    //     String line = "";
+    //     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    //     while((line = br.readLine()) != null){
+    //         String[] lineSplit = line.split(",");
+    //         Map<String, String> personMap = new HashMap<>();
+    //         for(String attribute:lineSplit){
+    //             String[] attributeSplit = attribute.split(":");
+    //             personMap.put(attributeSplit[0].trim(), attributeSplit[1].trim());
+    //         }
+    //         listOfPerson.add(new Person(personMap.get("firstName"), personMap.get("lastName"), Integer.parseInt(personMap.get("Salary")), personMap.get("Email"), formatter.parse(personMap.get("Date of Birth")), personMap.get("Telephone"), Integer.parseInt(personMap.get("Postal Code"))));
+    //     }
+    //     br.close();
+    //     return listOfPerson;
+
+    // }
 
     public boolean saveFile() throws IOException{
         File fileToEdit = new File("data/output.txt");

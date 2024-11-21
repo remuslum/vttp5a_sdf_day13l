@@ -5,14 +5,14 @@
 2. docker system prune <br>
 Clear the docker compilation/build cache
 
-3. docker build -t <docker login>/<app name>:<version> <br>
+3. docker build -t <docker login>/<app name>:<version> . <br>
 Build the docker image
 E.g. docker build -t remuslum98/vttp5a_ssf_day13l:0.0.1<br>
 
 4. docker image ls
 Check if docker omage is created in local docker repo
 
-5. docker container -d -p <exposed public port>:<app server> <image name> <br>
+5. docker build -d -p <exposed public port>:<app server> <image name> <br>
 docker container -d -p 8080:3000 vttp5a-ssf-day13l:0.0.1
 Run the image inside the container (Exposed public port is what you use on the browser, app server is the port that the app runs on)
 
